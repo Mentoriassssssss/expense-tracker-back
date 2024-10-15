@@ -1,0 +1,42 @@
+GET http://localhost:8000/api/getAllTransactions
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NmYzYmM0NDlmYTI3NTU1NjE0OTgyMDIiLCJpYXQiOjE3MjcyNTMwMjYsImV4cCI6MTcyNzMzOTQyNiwiYXVkIjoiNjZmM2JjNDQ5ZmEyNzU1NTYxNDk4MjAyIiwiaXNzIjoiRXhwZW5zZSBUcmFja2VyIn0.Vhfru-K3_Sgulrx3jLVi5SRn5AiBovacWyQEvRgMlZ4
+
+###
+GET http://localhost:8000/api/getTransaction/66f3d25bc4ade2df76f08e3c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NmYzYmM0NDlmYTI3NTU1NjE0OTgyMDIiLCJpYXQiOjE3MjcyNTMwMjYsImV4cCI6MTcyNzMzOTQyNiwiYXVkIjoiNjZmM2JjNDQ5ZmEyNzU1NTYxNDk4MjAyIiwiaXNzIjoiRXhwZW5zZSBUcmFja2VyIn0.Vhfru-K3_Sgulrx3jLVi5SRn5AiBovacWyQEvRgMlZ4
+
+###
+POST http://localhost:8000/auth/login
+Content-Type: application/json
+Authorization: Bearer 
+
+{
+    "username": "mentorias",
+    "password": "15215215a"
+}
+###
+POST http://localhost:8000/auth/signup
+Content-Type: application/json
+
+{
+    "username": "mentorias",
+    "password": "15215215a",
+    "name": "Mentorias"
+}
+###
+POST http://localhost:8000/api/addTransaction
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NmZkMGJiZTgxOThkMzk1ZTMzZWU3MWYiLCJpYXQiOjE3MjgzNjk4NjgsImV4cCI6MTcyODQ1NjI2OCwiYXVkIjoiNjZmZDBiYmU4MTk4ZDM5NWUzM2VlNzFmIiwiaXNzIjoiRXhwZW5zZSBUcmFja2VyIn0.GLzADSz3dxDLBjdLYCQuZ0SWrUMod1T_troaJuuxx0E
+Content-Type: application/json
+
+{
+    "title": "Buy milk tea",
+    "type": "Expense",
+    "amount": 25000,
+    "date": "09-09-2024",
+    "ref": "Buy some milk tea at the supermarket"
+}
+###
+
+GET http://localhost:8000/api/getIncomes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NmZkMGJiZTgxOThkMzk1ZTMzZWU3MWYiLCJpYXQiOjE3Mjg5ODA0NzQsImV4cCI6MTcyOTA2Njg3NCwiYXVkIjoiNjZmZDBiYmU4MTk4ZDM5NWUzM2VlNzFmIiwiaXNzIjoiRXhwZW5zZSBUcmFja2VyIn0.YVy5H6jPBYTRdqNcnKdSkhq8vl3Gtwa0hHCFGyR-sc8
+Content-Type: application/json
