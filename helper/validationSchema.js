@@ -17,7 +17,7 @@ const transactionSchema = Joi.object({
     title: Joi.string().required(),
     type: Joi.string().valid('Income', 'Expense').required(),
     amount: Joi.number().required(),
-    date: joi.date().required(),
+    date: joi.string().required(),
     ref: Joi.string()
 });
 

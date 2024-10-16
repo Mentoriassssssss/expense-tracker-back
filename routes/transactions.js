@@ -17,6 +17,7 @@ transactionsAPI.get('/getAllTransactions', verifyAccessToken, async (req, res, n
         if (!data) {
             throw createError.NotFound('No data found')
         }
+        
         res.status(200).json(data);
     } catch (error) {
         if (error.isJoi === true) {
