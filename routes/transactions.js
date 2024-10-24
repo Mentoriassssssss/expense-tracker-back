@@ -42,6 +42,67 @@ transactionsAPI.get('/getIncomes', verifyAccessToken, async (req, res, next) => 
     }
 })
 
+transactionsAPI.get('/getTotalIncome', verifyAccessToken, async (req, res, next) => {
+    try {
+        const data = await Transactions.find({type: 'Income'})
+        if (!data) {
+            throw createError.NotFound('No data found')
+        }
+        let total = 0;
+        data.forEach(element => {
+            total += element.amount
+        });
+        res.status(200).json(total);
+    } catch (error) {
+        if (error.isJoi === true) {
+            error.status = 422;
+        }
+        next(error)
+    }
+})
+
+transactionsAPI.get('/getTotalExpense', verifyAccessToken, async (req, res, next) => {
+    try {
+        const data = await Transactions.find({type: 'Expense'})
+        if (!data) {
+            throw createError.NotFound('No data found')
+        }
+        let total = 0;
+        data.forEach(element => {
+            total += element.amount
+        });
+        res.status(200).json(total);
+    } catch (error) {
+        if (error.isJoi === true) {
+            error.status = 422;
+        }
+        next(error)
+    }
+})
+
+transactionsAPI.get('/getTotalBalance', verifyAccessToken, async (req, res, next) => {
+    try {
+        const incomes = await Transactions.find({type: 'Income'})
+        const expenses = await Transactions.find({type: 'Expense'})
+        if (!incomes || !expenses) {
+            throw createError.NotFound('No data found')
+        }
+        let total = 0;
+        incomes.forEach(element => {
+            total += element.amount
+        });
+        expenses.forEach(element => {
+            total -= element.amount
+        });
+        res.status(200).json(total);
+    } catch (error) {
+        if (error.isJoi === true) {
+            error.status = 422;
+        }
+        next(error)
+    }
+})
+
 transactionsAPI.get('/getExpenses', verifyAccessToken, async (req, res, next) => {
     try {
         const data = await Transactions.find({type: 'Expense'})
